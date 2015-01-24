@@ -3,12 +3,15 @@
 public var velocidad: float;
 public var intervalo: float;
 public var alturaMinima: float;
+public var posicionLimite: Vector3;
+private var posicionInicial: Vector3;
 
 private var mov: boolean = false;
 
 
 function Start(){
 
+	posicionInicial = transform.position;
 	movimiento();
 }
 
@@ -21,12 +24,12 @@ function Update () {
 	}
 	
 	// Si la cuchilla llega a cierto punto se para el movimiento y se reinicia
-	/*if(this.transform.position.y < alturaMinima){
+	if(this.transform.position.y < posicionLimite.y){
 	
 		mov = false;
-		// Recolocacion
+		transform.position = posicionInicial;
 		movimiento();
-	}*/
+	}
  	
 }
 
